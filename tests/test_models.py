@@ -89,6 +89,10 @@ def test_review_rating_negative_value_raises_exception(db):
     review = mixer.blend('reviews.review', rating=-1)
     with pytest.raises(ValidationError) as err:
         review.full_clean()
+def test_review_rating_value_too_high(db):
+    review = mixer.blend('reviews.review', rating=11)
+    with pytest.raises(ValidationError) as err:
+        review.full_clean()
 def test_review_return_title(db):
     review = mixer.blend('reviews.review')
     stringa = review.__str__()

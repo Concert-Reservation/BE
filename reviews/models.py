@@ -12,7 +12,7 @@ class Review(models.Model):
     content = models.TextField(null=True, max_length=500)
     genre = models.CharField(null=True,max_length=50)
     venue = models.CharField(null=True,max_length=50)
-    date_concert = models.DateTimeField(null=True)
+    date_concert = models.IntegerField(null=True, default=0)
     rating = models.IntegerField(null=True,default=0, validators=[MinValueValidator(0)])
     date_reviewed = models.DateTimeField(null=True, auto_now_add=True)
 

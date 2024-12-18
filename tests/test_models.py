@@ -93,3 +93,12 @@ def test_review_return_title(db):
     review = mixer.blend('reviews.review')
     stringa = review.__str__()
     assert stringa == review.title
+
+def test_date_concert_accepts_positive_integer(db):
+    review = mixer.blend('reviews.review', date_concert=2024)
+    review.full_clean()  # Non dovrebbe sollevare eccezioni
+    assert review.date_concert == 2024
+def test_review_date_concert_negative_value_raises_exception(db):
+    review = mixer.blend('reviews.review', rating=-1)
+    with pytest.raises(ValidationError) as err:
+        review.full_clean()

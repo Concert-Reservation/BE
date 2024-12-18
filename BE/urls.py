@@ -19,8 +19,8 @@ from django.urls import path, include
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-API_TITLE = 'Blog API v2024'
-API_DESCRIPTION = 'A nice web API for my blog'
+API_TITLE = 'Concert Review'
+API_DESCRIPTION = 'Concert Review'
 
 schema_view = get_schema_view(
     openapi.Info(title=API_TITLE,
